@@ -29,7 +29,12 @@ class CarAdmin(admin.ModelAdmin):
 
 class ReviewAdmin(admin.ModelAdmin):
     form = ReviewAdminForm
-    fields = ('car', 'title')
+
+    list_display = ('car', 'title')
+    search_fields = ('car__model', 'title')
+
+
+
 
 admin.site.register(Car, CarAdmin)
 admin.site.register(Review, ReviewAdmin)
